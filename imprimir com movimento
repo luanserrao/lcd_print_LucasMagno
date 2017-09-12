@@ -1,0 +1,38 @@
+#include <LiquidCrystal.h>
+
+// informa os pinos do lcd
+LiquidCrystal lcd(9, 8, 7, 6, 5, 4); // (12, 11,5,4,3,2) do codigo original
+                //(9, 8, 7, 6, 5, 4) do nosso programa ;              
+void setup() {
+  // set up the LCD's number of columns and rows: 
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+
+}
+
+void loop() 
+  {
+             //Limpa a tela
+  lcd.clear();
+                         //Posiciona o cursor na coluna 3, linha 0;
+  lcd.setCursor(3, 0);
+  //Envia o texto entre aspas para o LCD
+  lcd.print("LUCAS"); // vc pode Aterar esse nome  ele esta na primeira linha 
+  lcd.setCursor(3, 1);    // aqui vc muda a posição
+  lcd.print("MAGNO");    // ess nome tbm pode ser alterado ele esta na segunda linha
+  delay(1000);
+   
+  //Rolagem para a esquerda
+  for (int posicao = 0; posicao < 3; posicao++)
+  {
+    lcd.scrollDisplayLeft(); // o nomme anda para esquerda 
+    delay(300); // esse tempo pode ser alterado tbm se vc diminuir ele anda mais rapido 
+  }
+   
+  //Rolagem para a direita
+  for (int posicao = 0; posicao < 6; posicao++)
+  {
+    lcd.scrollDisplayRight();
+    delay(300);// esse tempo pode ser alterado tbm se vc diminuir ele anda mais rapido
+  }
+}
